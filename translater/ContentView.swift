@@ -1,3 +1,4 @@
+import AppKit
 import SwiftUI
 
 struct ContentView: View {
@@ -36,6 +37,13 @@ struct ContentView: View {
                 Text("\(translator.languageName(pair.sourceID)) → \(translator.languageName(pair.targetID))")
                     .font(.callout)
                     .foregroundStyle(.secondary)
+            }
+
+            Divider()
+
+            Button("Завершить приложение") {
+                translator.setEnabled(false)
+                NSApplication.shared.terminate(nil)
             }
 
             Text("Разработчик · @AndreyDidenkoStr")
